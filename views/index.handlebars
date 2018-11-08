@@ -1,0 +1,55 @@
+<div class = "container">
+  {{!-- Title... --}}
+  <div class = "row">
+    <div class = "col-md-12 text-center">
+      <h1>Eat & Enjoy Da Burger!</h1>
+    </div>
+  </div>
+
+  {{!-- Burger img.. --}}
+  <div class = "row">
+    <div class = "col-md-12 text-center">
+      <img class = "img=fluid" src = "/public/assets/img/eatdaburger.jpg">
+    </div>
+  </div>
+  <div class = "row">
+    {{!-- Burgers are not Devoured! --}}
+    <div class= "col-md-4">
+
+    <h2 class = "text-Center">Not Devoured</h2>
+  <ul>
+   {{#each burger}}
+    {{#unless this.Devoured}}
+      {{> burgers/burger-block Devoured=true}}
+    {{/unless}}
+  {{/each}}
+</ul>   
+</div>
+{{!-- Form --}}
+<div class = "col-md-4 text-center">
+  <from action = "" method = "POST">
+    <input type= "text"  id = "burger" palceholder = "Enter your Burger Name">
+  </from>
+  <input type = "submit" id= "submit-button" class ="btn btn-primary" value= "Submit">
+
+</div>
+
+{{!-- Devoured --}}
+<div class= "col-md-4">
+   <h2 class = "text-Center">Devoured</h2>
+
+  <ul>
+   {{#each burgers}}
+    {{#if this.devoured}}
+      <li>{{burger_namr}}</li>
+    {{/if}}
+  {{/each}}
+ </ul>
+</div>
+
+</div>
+
+
+
+
+</div>
