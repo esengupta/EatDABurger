@@ -1,16 +1,12 @@
-// Import (require) connection.js into orm.js
+// Import MySQL connection.
+var connection = require("./connection.js");
 
-// In the orm.js file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
-
-// selectAll()
-// insertOne()
-// updateOne()
-// Export the ORM object in module.exports.
-
-
-//import MySQL connection..
-var connection = require("../config /connection.js");
-function printquestionMarks(num)  {
+// Helper function for SQL syntax.
+// Let's say we want to pass 3 values into the mySQL query.
+// In order to write the query, we need 3 question marks.
+// The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
+// ["?", "?", "?"].toString() => "?,?,?";
+function printQuestionMarks(num) {
   var arr = [];
 
   for (var i = 0; i < num; i++) {
@@ -18,10 +14,9 @@ function printquestionMarks(num)  {
   }
 
   return arr.toString();
-
 }
 
-// function to convert object key/value pairs to SQL syntax
+// Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
   var arr = [];
 
@@ -34,8 +29,8 @@ function objToSql(ob) {
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
-      // e.g. {burger name: 'cheese Burger'} => ["burger name='Cheese Burger'"]
-      // e.g. {devoured: true} => ["devoured=true"]
+      // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
+      // e.g. {sleepy: true} => ["sleepy=true"]
       arr.push(key + "=" + value);
     }
   }
@@ -46,7 +41,6 @@ function objToSql(ob) {
 
 // Object for all our SQL statement functions.
 var orm = {
- // selectAll()
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
@@ -56,8 +50,6 @@ var orm = {
       cb(result);
     });
   },
-
-  // insertOne()
   create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
@@ -78,9 +70,7 @@ var orm = {
       cb(result);
     });
   },
-
-  // updateOne()
-  // An example of objColVals would be {burger name: Cheese Burger, devoured: true}
+  // An example of objColVals would be {name: panther, sleepy: true}
   update: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
@@ -98,8 +88,6 @@ var orm = {
       cb(result);
     });
   },
-
-  // deleteOne()
   delete: function(table, condition, cb) {
     var queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
@@ -115,5 +103,5 @@ var orm = {
   }
 };
 
-// Export the orm object for the model (burger.js).
+// Export the orm object for the model (cat.js).
 module.exports = orm;

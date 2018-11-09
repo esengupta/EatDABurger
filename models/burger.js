@@ -23,6 +23,8 @@ var burger = {
     });
   },
   update: function(objColVals, condition, cb) {
+    console.log("in models");
+    console.log(objColVals, condition);
     orm.update("burgers", objColVals, condition, function(res) {
       cb(res);
     });
