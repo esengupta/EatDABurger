@@ -1,6 +1,7 @@
 # EatDABurger
 https://quiet-harbor-94306.herokuapp.com/
 
+```
 .
 ├── config
 │   ├── connection.js (In connection.js file,setup the code to connect Node to MySQL & Export the connection.)
@@ -49,6 +50,7 @@ https://quiet-harbor-94306.herokuapp.com/
 |
 |
 ├── server.js
+```
 
 
 ###App Setup
