@@ -3,17 +3,18 @@
 // Export the connection.
 // Set up MySQL connection.
 var mysql = require("mysql");
+var connection;
 
 if (process.env.JAWDB_URL) {
  connection = mysql.createConnection(process.env.JAWSDB_URL)
 } else {
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "root",
-  database: "burger_db"
-});
+  connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: "root",
+    database: "burger_db"
+  });
 }
 
 // Make connection.
