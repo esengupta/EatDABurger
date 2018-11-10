@@ -43,9 +43,12 @@ https://quiet-harbor-94306.herokuapp.com/
 │
 |
 |── views
-|   ├── index.handlebars
+|   ├── index.handlebars  (That will submit the user input into the database.)
+|   |                     (For setup the index.handlebars to have the template that Handlebars can render onto.)
+|   |
+|   |
 |   └── layouts
-|       └── main.handlebars
+|       └── main.handlebars  ( it's able to be used by Handlebars.)
 |
 |
 |
@@ -54,18 +57,16 @@ https://quiet-harbor-94306.herokuapp.com/
 
 
 ### App Setup
-Create a GitHub repo called 'eatDABurger' and clone it to my computer.
+ Clone the repo to computer. Make a 'package.json' file by running 'npm init' from the command line. Make a 'package.json' file by running 'npm init' from the command line. Install the Express npm package: 'npm install express'. Create a server.js file. Install the Handlebars npm package: 'npm install express-handlebars'. Install MySQL npm package: 'npm install mysql'. Require the following npm packages inside of the server.js file: . *express 
 
-Make a 'package.json' file by running 'npm init' from the command line.
 
-Install the Express npm package: 'npm install express'.
 
-Create a server.js file.
 
-Install the Handlebars npm package: 'npm install express-handlebars'.
 
-Install MySQL npm package: 'npm install mysql'.
 
-Require the following npm packages inside of the server.js file:
 
-*express
+
+
+
+
+
