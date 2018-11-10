@@ -53,7 +53,7 @@ https://quiet-harbor-94306.herokuapp.com/
 ```
 
 
-###App Setup
+### App Setup
 Create a GitHub repo called 'eatDABurger' and clone it to my computer.
 
 Make a 'package.json' file by running 'npm init' from the command line.
